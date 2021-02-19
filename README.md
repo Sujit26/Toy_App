@@ -1,5 +1,8 @@
 # README
 
+## Toy app
+    One user can have multiple Microposts
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
