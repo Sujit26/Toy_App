@@ -2,5 +2,10 @@ Rails.application.routes.draw do
   resources :microposts
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'application#hello'
+  root 'static_pages#home' 
+  get "/home", to: "static_pages#index",  :as => :home
+  get "/about" , to: "static_pages#about", :as =>  :about
+  get "/help" , to: "static_pages#help", :as => :help
+  get "/contact" , to: "static_pages#contact" , :as => :contact
+  get '/signup', to: 'users#new', :as => :signup
 end
