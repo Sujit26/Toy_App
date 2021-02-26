@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.create!(name: "admin",
+             email: "admin@gmail.com",
+             password:              "admin123",
+             password_confirmation: "admin123",
+             admin: true)
+
+             
+# Generate a bunch of additional users
+# 99.times do |n|
+#     name = "Sudo Name #{n+1}"
+#     email = "example-#{n+1}@railstutorial.org"
+#     password = "password"
+#     User.create!(name: name,email: email,password:password,password_confirmation: password,admin: false)
+#     puts {name}.to_s + "is added"
+# end
