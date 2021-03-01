@@ -10,12 +10,17 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.all
+    
+    # @microposts = @user.microposts.paginate(page:params[:page])
+
+    
     # render html: params[:id]
     # debugger
   end
   
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.all
   end
 
   def new
@@ -54,6 +59,9 @@ class UsersController < ApplicationController
     redirect_to root_url
   end
   
+  def feed
+    microposts
+  end
 
 
   private
@@ -71,5 +79,9 @@ class UsersController < ApplicationController
   def correct_user
     @user = User.find(params[:id])
     redirect_to(root_url) unless @user == current_user
+  end
+
+  def admin_user
+    redirect_to(root_url) unless current_user.admin? 
   end
 end
