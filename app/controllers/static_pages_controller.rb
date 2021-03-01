@@ -1,12 +1,15 @@
 class StaticPagesController < ApplicationController
 
-    def index
-    end
 
     def home
-        render html:  "<h1>hello<h1>"
+        if logged_in?
+            @micropost = current_user.microposts.build
+            @feed_items = current_user.feed
+        end
     end
-        def help
+
+
+    def help
         render html: "This is Help page!"
     end
 
